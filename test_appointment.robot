@@ -5,6 +5,7 @@ Library  SeleniumLibrary
 ${BROWSER}    gc
 ${REGISTER_URL}   https://vaccine-haven.herokuapp.com/reservation
 ${INFO_URL}       https://vaccine-haven.herokuapp.com/info
+${MAIN_URL}       https://vaccine-haven.herokuapp.com/
 ${ID}       9621054603071
 ${SITE_NAME}        OGYHSite
 ${VACCINE}         Pfizer
@@ -19,7 +20,7 @@ Cancel the reservation
     Go to my info page
     Input citizen id
     Click submit button 
-    Click Cancel button
+    Click cancel button
 
 *** Keywords ***
 Go to Register page
@@ -35,6 +36,7 @@ Click reservation button
     Click Button  identifier=reserve__btn
 
 Go to my info page
+    Wait Until Location Is      ${MAIN_URL}
     Go To       ${INFO_URL}
     Set Selenium Speed  0.3
 Input citizen id
